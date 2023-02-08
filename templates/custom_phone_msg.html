@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div id="content" class="span10">			
+			<ul class="breadcrumb">
+				<li>
+					<i class="icon-home"></i>
+					<a href="/home">Control-Panel</a> 
+					<i class="icon-angle-right"></i>
+				</li>
+				<li><a href="{{ url_for('custom') }}">Custom Status</a></li>
+			</ul>
+<div class="row-fluid sortable">		
+				<div class="box span12">
+					<div class="box-header" data-original-title>
+						<h2><i class="halflings-icon user"></i><span class="break"></span>Set Custom Phone And Message</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						 <form class="form-horizontal" action="{{ url_for('custom_status') }}" method="POST">
+						  <fieldset>
+							<div class="control-group">
+							  <label class="control-label" for="typeahead">ON Message </label>
+							  <div class="controls">
+								<input type="text" name="status_on" class="span6 typeahead" placeholder="Write the 'command name' to ON your bike"  required>
+							 </div>
+							</div>	
+							<div class="control-group">
+							  <label class="control-label" for="typeahead">OFF Message </label>
+							  <div class="controls">
+								<input type="text" name="status_off" class="span6 typeahead" placeholder="Write the 'command name' to OFF your bike"  required>							
+							  </div>
+							</div>	
+							<div class="control-group">
+							  <label class="control-label" for="typeahead">Phone Number</label>
+							  <div class="controls">
+								<input type="number" name="phonenumber" class="span6 typeahead" placeholder="Phone number to send 'SMS' to your bike" data-provide="typeahead" data-items="4" required>							
+							  </div>
+							</div>	
+							<div class="form-actions">
+							  <button type="submit" class="btn btn-primary">Save changes</button>
+							  <button type="reset" class="btn">Cancel</button>
+							</div>
+						  </fieldset>
+						</form>      
+					</div>
+				</div><!--/span-->
+			
+			</div><!--/row-->
+</div>
+{% endblock %}	
